@@ -1,7 +1,5 @@
 # DB-Alerter
 <a name="installation"><h2>⬇️ Installation</h2></a>
-Download from here: [latest release (click here)][latest-release-link] or click under Releases
-
 <div align="center">
 <picture> 
   <img src="https://raw.githubusercontent.com/FerdAngle/.github/main/assets/DB-alerter/DB-alert.png">
@@ -11,7 +9,7 @@ Download from here: [latest release (click here)][latest-release-link] or click 
 [![][latest-release-shield]][latest-release-link]
 [![][downloads-shield]][downloads-link]
 <br>
-The open source form mastery project that reaches for the red star.
+Download from here: [latest release (click here)][latest-release-link] or click under Releases
 </div>
 
 

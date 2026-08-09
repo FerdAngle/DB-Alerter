@@ -257,3 +257,6 @@ DBPixelFinder:
         }
     }
 return 
+
+GuiClose:
+ExitApp

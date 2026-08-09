@@ -14,7 +14,7 @@
 <br>
 
 > [!CAUTION]
-> If you're not having your roblox window fullscreen, then divide it by Win + ArrowKeys **Do NOT leave your roblox window hanging in the middle of your screen** 
+> Make sure your roblox window is touching the border of your screen + divide your roblox window using Win + ArrowKeys so its divided evenly **Do NOT leave your roblox window hanging in the middle of your screen** 
 >
 
 

@@ -9,7 +9,7 @@
 [![][latest-release-shield]][latest-release-link]
 [![][downloads-shield]][downloads-link]
 <br>
-**Download from here:** [latest release (click here)][latest-release-link] or click under Releases
+**Download from here:** [latest release (click here)][latest-release-link] or click under Releases (It's the ZIP file DB-Alerter-v#.#.#)
 </div>
 
 

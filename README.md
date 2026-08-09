@@ -13,9 +13,7 @@
 </div>
 <br>
 
-> [!CAUTION]
-> Make sure your roblox window is touching the border of your screen + divide your roblox window using Win + ArrowKeys so its divided evenly **Do NOT leave your roblox window hanging in the middle of your screen** 
->
+
 
 
 [latest-release-shield]: https://img.shields.io/github/v/release/FerdAngle/DB-Alerter?logo=github&logoColor=white&labelColor=black&color=faa125

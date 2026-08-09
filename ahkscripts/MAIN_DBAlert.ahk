@@ -85,6 +85,7 @@ return
 
 
 HotkeySettingsGUI:
+     WinSet, AlwaysOnTop, Off, DB Alerter (NOT monitoring...) 
      SetTimer, UglyCode, Off 
      Gui, 2:Show,, Hotkeys
      HotkeyStates("Off") 
@@ -93,7 +94,8 @@ return
 2GuiClose:
     Gui, 2:Hide
     HotkeyStates("On") 
-    SetTimer, UglyCode, On   
+    SetTimer, UglyCode, On 
+    WinSet, AlwaysOnTop, On, DB Alerter (NOT monitoring...) 
 return 
 
 RevertHotkeys:  

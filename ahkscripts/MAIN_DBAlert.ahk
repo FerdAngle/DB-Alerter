@@ -234,7 +234,7 @@ DBPixelFinder:
             , 3
             , Fast RGB 
             if (ErrorLevel = 0){ 
-                SetTimer, DBPixelFinder, Off 
+                Gosub, StopMonitoring
                 MouseMove, px, py
                 ;MsgBox,0x40000,, % "FOUND IT", 5
                 Gosub, AlertTheBoys

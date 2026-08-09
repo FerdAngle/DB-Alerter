@@ -1,6 +1,6 @@
 # DB-Alerter
 <a name="installation"><h2>⬇️ Installation</h2></a>
-Download from here: [latest release (click here)][latest-release-link]
+Download from here: [latest release (click here)][latest-release-link] or click under Releases
 
 <div align="center">
 <picture> 

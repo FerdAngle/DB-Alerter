@@ -220,40 +220,39 @@ DBPixelFinder:
         MouseMove, px, py
         Sleep, 250
         MouseClick, Left 
-        Send, #{Left}
-        MouseMove, A_ScreenWidth/5, py 
+        WinGetPos, oX, oY, oW, oH, Roblox ;original position to restore to if its a false flag
         Sleep, 250
-        Send, {Esc}
+        WinMove, Roblox,, 0, 0, A_ScreenWidth/2, A_ScreenHeight
+        Sleep, 250
+        MouseMove, A_ScreenWidth/6, 10
+        Sleep, 250
+        MouseClick, Left
         Scans := 0 
         WinGetPos, winX, winY, winW, winH, Roblox 
         loop {
             PixelSearch, px, py
-            , winX + (winW * 0.75), winY  
-            , winX + (winW), winY + (winH * 0.375) 
+            , winX + (winW * 0.65), winY  
+            , winX + (winW), winY + (winH * 0.5) 
             , TargetPixel 
             , 3
             , Fast RGB 
             if (ErrorLevel = 0){ 
-                Gosub, StopMonitoring
+                GoSub, StopMonitoring
                 MouseMove, px, py
                 ;MsgBox,0x40000,, % "FOUND IT", 5
                 Gosub, AlertTheBoys
+                WinMove, Roblox,, oX, oY, oW, oH 
                 break
             } 
-            Sleep, 95
+            Sleep, 75
             Scans += 1
-            if (Scans = 10){
+            if (Scans = 25){
                 break 
             }  
         }
-        if (Scans = 10){
+        if (Scans = 25){
             ;MsgBox,0x40000,, % "False Positive", 1
-            CoordMode, Mouse, Screen 
-            MouseMove, A_ScreenWidth/6, 10 
-            Sleep, 350
-            MouseClick, Left 
-            Sleep, 250 
-            Send, #{Right}
+            WinMove, Roblox,, oX, oY, oW, oH 
         }
     }
 return 

@@ -180,6 +180,7 @@ StopMonitoring:
     Gui, Hide
     Gui, Show, , DB Alerter (NOT monitoring...)
     SetTimer, AntiAFK, Off
+    SetTimer, DBPixelFinder, Off
     SetTimer, UglyCode, On             
 return 
 
@@ -206,19 +207,53 @@ AlertTheBoys:
 return 
 
 DBPixelFinder:  
-    TargetPixel := 0x94A430
-    WinGetPos, winX, winY, winW, winH, Roblox 
-    CoordMode, Pixel, Window
+    ;MsgBox,0x40000,, % "Running pixel search", 1
+    TargetPixel := 0x94A430  ;0xC7C635 ;0xDBD34B;0xBBBD33
+    CoordMode, Pixel, Window 
     PixelSearch, px, py
-    , winX + (winW * 0.75), winY  
-    , winX + (winW), winY + (winH * 0.4) 
+    , 0, 0  
+    , A_ScreenWidth , A_ScreenHeight 
     , TargetPixel 
     , 3
-    , Fast RGB 
-    if (ErrorLevel = 0){ 
-        SetTimer, DBPixelFinder, Off
+    , Fast RGB alt 
+    if (ErrorLevel = 0){
         MouseMove, px, py
-        Gosub, AlertTheBoys
-        Goto, StopMonitoring 
-    } 
+        Sleep, 250
+        MouseClick, Left 
+        Send, #{Left}
+        MouseMove, A_ScreenWidth/5, py 
+        Sleep, 250
+        Send, {Esc}
+        Scans := 0 
+        WinGetPos, winX, winY, winW, winH, Roblox 
+        loop {
+            PixelSearch, px, py
+            , winX + (winW * 0.75), winY  
+            , winX + (winW), winY + (winH * 0.375) 
+            , TargetPixel 
+            , 3
+            , Fast RGB 
+            if (ErrorLevel = 0){ 
+                SetTimer, DBPixelFinder, Off 
+                MouseMove, px, py
+                ;MsgBox,0x40000,, % "FOUND IT", 5
+                Gosub, AlertTheBoys
+                break
+            } 
+            Sleep, 95
+            Scans += 1
+            if (Scans = 10){
+                break 
+            }  
+        }
+        if (Scans = 10){
+            ;MsgBox,0x40000,, % "False Positive", 1
+            CoordMode, Mouse, Screen 
+            MouseMove, A_ScreenWidth/6, 10 
+            Sleep, 350
+            MouseClick, Left 
+            Sleep, 250 
+            Send, #{Right}
+        }
+    }
 return 

@@ -11,6 +11,9 @@
 <br>
 **Download from here:** [latest release (click here)][latest-release-link] or click under Releases (It's the ZIP file DB-Alerter-v#.#.#)
 </div>
+> [!CAUTION]
+> If you're not having your roblox window fullscreen, then divide it by Win + ArrowKeys **Do NOT leave your roblox window hanging in the middle of your screen** 
+>
 
 
 [latest-release-shield]: https://img.shields.io/github/v/release/FerdAngle/DB-Alerter?logo=github&logoColor=white&labelColor=black&color=faa125

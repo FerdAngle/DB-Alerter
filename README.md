@@ -11,6 +11,8 @@
 <br>
 **Download from here:** [latest release (click here)][latest-release-link] or click under Releases (It's the ZIP file DB-Alerter-v#.#.#)
 </div>
+<br>
+
 > [!CAUTION]
 > If you're not having your roblox window fullscreen, then divide it by Win + ArrowKeys **Do NOT leave your roblox window hanging in the middle of your screen** 
 >

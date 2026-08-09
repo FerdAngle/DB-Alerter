@@ -7,6 +7,7 @@ Download from here: [latest release (click here)][latest-release-link] or click 
   <img src="https://raw.githubusercontent.com/FerdAngle/.github/main/assets/DB-alerter/DB-alert.png">
 </picture>
 <br>
+
 [![][latest-release-shield]][latest-release-link]
 [![][downloads-shield]][downloads-link]
 <br>

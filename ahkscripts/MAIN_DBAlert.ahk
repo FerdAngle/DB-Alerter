@@ -8,6 +8,7 @@ global User := " "
 global Server := " "
 global startHOTKEY := "F1"
 global stopHOTKEY := "F2"
+global Running := false
 
 
 IniRead, User, data.ini, usernames, user, %User%
@@ -167,6 +168,7 @@ StartMonitoring:
         MsgBox, Please have the roblox window open.
         return
     }
+    Running := true 
     Gui, Hide 
     Gui, Show, , DB Alerter (MONITORING!)
     Sleep, 500
@@ -177,6 +179,7 @@ StartMonitoring:
 return 
 
 StopMonitoring:
+    Running := false
     Gui, Hide
     Gui, Show, , DB Alerter (NOT monitoring...)
     SetTimer, AntiAFK, Off
@@ -222,38 +225,19 @@ DBPixelFinder:
         MouseClick, Left 
         WinGetPos, oX, oY, oW, oH, Roblox ;original position to restore to if its a false flag
         Sleep, 250
-        WinMove, Roblox,, 0, 0, A_ScreenWidth/2, A_ScreenHeight
-        Sleep, 250
-        MouseMove, A_ScreenWidth/6, 10
-        Sleep, 250
-        MouseClick, Left
-        Scans := 0 
-        WinGetPos, winX, winY, winW, winH, Roblox 
-        loop {
-            PixelSearch, px, py
-            , winX + (winW * 0.65), winY  
-            , winX + (winW), winY + (winH * 0.5) 
-            , TargetPixel 
-            , 3
-            , Fast RGB 
-            if (ErrorLevel = 0){ 
-                GoSub, StopMonitoring
-                MouseMove, px, py
-                ;MsgBox,0x40000,, % "FOUND IT", 5
-                Gosub, AlertTheBoys
-                WinMove, Roblox,, oX, oY, oW, oH 
-                break
+        MouseGetPos, m1, m2
+        if ((m1/oW) > 0.72 && (m2/oH) < 0.43){
+            Gosub, AlertTheBoys
+            loop 3600 {
+                if (Running){
+                    Sleep, 1000
+                } else {
+                    break 
+                }
             } 
-            Sleep, 75
-            Scans += 1
-            if (Scans = 25){
-                break 
-            }  
-        }
-        if (Scans = 25){
-            ;MsgBox,0x40000,, % "False Positive", 1
-            WinMove, Roblox,, oX, oY, oW, oH 
-        }
+           ; MsgBox,0x40000,,% "Pixel Found"
+        } 
+
     }
 return 
 
